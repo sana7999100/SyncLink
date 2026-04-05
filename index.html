@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> SyncLink - Read Novels Online</title>
+    <link rel ="stylesheet" href ="style.css">
+    <!-- Icons for the UI -->
+    <link rel ="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div class="header">
+        <div class="logo">Sync<span style="color:#38bdf8">Link</span></div>
+        
+        <div class="search-area">
+            <input type="text" id="myInput" placeholder="Search for a novel...">
+            <button onclick="searchFunction()"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="menu-icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-bookmark"></i>
+            <button class="login-btn">Log In</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Left Side: The Grid where search results show up -->
+        <div class="left-section">
+            <h2 id="titleUpdate">Latest Updates</h2>
+            <div id="bookGrid" class="book-grid">
+                <!-- Books will appear here automatically -->
+            </div>
+        </div>
+
+        <!-- Right Side: Rankings and Top Novels -->
+        <div class="right-sidebar">
+            <div class="rank-card">
+                <h3><i class="fas fa-fire"></i> Most Viewed</h3>
+                <ol>
+                    <li>Shadow Slave</li>
+                    <li>Lord of the Mysteries</li>
+                    <li>The Primal Hunter</li>
+                    <li>Reverend Insanity</li>
+                    <li>Solo Leveling</li>
+                </ol>
+            </div>
+
+            <div class="rank-card">
+                <h3><i class="fas fa-trophy"></i> Top of 2024</h3>
+                <ul>
+                    <li>1. Circle of Inevitability</li>
+                    <li>2. Deep Sea Embers</li>
+                    <li>3. Outsider</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
