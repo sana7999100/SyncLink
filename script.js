@@ -1,26 +1,20 @@
 function searchFunction() {
-    var query = document.getElementById("myInput").value;
-    var grid = document.getElementById("bookGrid");
-    var title = document.getElementById("titleUpdate");
+    var query = document.getElementById("search").value;
+    var grid = document.getElementById("bookList");
 
     if (query === "") {
         alert("Please enter a name!");
         return;
     }
 
-    title.innerText = "Results for: " + query;
     grid.innerHTML = "<p>Loading books...</p>";
 
-    // FIXED API URL
-    var url = "https://openlibrary.org" + query + "&limit=10";
+    var url = "https://openlibrary.org/search.json?q=" + query + "&limit=10";
 
     fetch(url)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
+        .then(response => response.json())
+        .then(data => {
             grid.innerHTML = ""; 
-            
             var books = data.docs;
 
             if (!books || books.length === 0) {
@@ -28,35 +22,24 @@ function searchFunction() {
                 return;
             }
 
-            for (var i = 0; i < books.length; i++) {
-                var currentBook = books[i];
-                var coverId = currentBook.cover_i;
-                
-                // FIXED IMAGE URL
-                var imgUrl = "https://placeholder.com";
-                
-                if (coverId) {
-                    imgUrl = "https://openlibrary.org" + coverId + "-M.jpg";
-                }
+            books.forEach(book => {
+                var coverId = book.cover_i;
+                var imgUrl = coverId 
+                    ? "https://covers.openlibrary.org/b/id/" + coverId + "-M.jpg"
+                    : "https://via.placeholder.com/150";
 
-                var cardHtml = 
-                '<div class="book-card">' +
-                    '<img src="' + imgUrl + '">' +
-                    '<h4>' + currentBook.title + '</h4>' +
-                    '<button onclick="alert(\'Bookmarked!\')" style="cursor:pointer; background:#38bdf8; border:none; padding:5px; border-radius:3px;">Save</button>' +
-                '</div>';
+                var cardHtml = `
+                    <div class="book">
+                        <img src="${imgUrl}">
+                        <h4>${book.title}</h4>
+                        <button onclick="alert('Bookmarked!')">Save</button>
+                    </div>`;
                 
                 grid.innerHTML += cardHtml;
-            }
+            });
         })
-        .catch(function(error) {
+        .catch(error => {
             grid.innerHTML = "<p>Error loading books. Check your internet!</p>";
             console.log("Error: " + error);
         });
 }
-
-// Automatically load a default search so the page isn't empty when it opens
-window.onload = function() {
-    document.getElementById("myInput").value = "Solo Leveling";
-    searchFunction();
-};
