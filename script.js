@@ -9,7 +9,8 @@ function searchFunction() {
 
     grid.innerHTML = "<p>Loading books...</p>";
 
-    var url = "https://openlibrary.org/search.json?q=" + query + "&limit=10";
+    // Correct OpenLibrary API URL
+    var url = "https://openlibrary.org/search.json?q=" + encodeURIComponent(query) + "&limit=10";
 
     fetch(url)
         .then(response => response.json())
@@ -40,6 +41,17 @@ function searchFunction() {
         })
         .catch(error => {
             grid.innerHTML = "<p>Error loading books. Check your internet!</p>";
-            console.log("Error: " + error);
+            console.error("Error: ", error);
         });
 }
+
+// Simple login function
+function login() {
+    alert("Login feature coming soon!");
+}
+
+// Automatically load a default search
+window.onload = function() {
+    document.getElementById("search").value = "Solo Leveling";
+    searchFunction();
+};
