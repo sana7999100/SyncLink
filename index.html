@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SyncLink</title>
+    <title>NovelHub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- Navbar -->
 <div class="navbar">
-    <h2>Sync<span>Link</span></h2>
+    <h2>Novel<span>Hub</span></h2>
 
     <input type="text" id="search" placeholder="Search novels...">
     <button onclick="searchFunction()">Search</button>
@@ -18,7 +18,7 @@
 
 <!-- Banner -->
 <div class="banner">
-    <h1>Welcome to SyncLink</h1>
+    <h1>Welcome to NovelHub</h1>
     <p>Read your favorite novels online 📚</p>
 </div>
 
@@ -30,14 +30,27 @@
 
     <!-- Right Sidebar -->
     <div class="sidebar">
-        <h3>Top Novels</h3>
-        <ul>
-            <li>Solo Leveling</li>
-            <li>Shadow Slave</li>
-            <li>Lord of the Mysteries</li>
-        </ul>
+        <h3>Bookmarks</h3>
+        <ul id="bookmarkList"></ul>
+
+        <h3>Search History</h3>
+        <ul id="historyList"></ul>
+
+        <h3>Reviews</h3>
+        <div id="reviewSection"></div>
     </div>
 
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLogin()">&times;</span>
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="submitLogin()">Submit</button>
+    </div>
 </div>
 
 <script src="script.js"></script>
