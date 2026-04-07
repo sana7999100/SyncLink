@@ -1,63 +1,45 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title> SyncLink - Read Novels Online</title>
-    <link rel ="stylesheet" href ="style.css">
-    <!-- Icons for the UI -->
-    <link rel ="stylesheet" href="https://cloudflare.com">
+    <title>SyncLink</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
-    <div class="header">
-        <div class="logo">Sync<span style="color:#38bdf8">Link</span></div>
-        
-        <div class="search-area">
-            <input type="text" id="search" placeholder="Search for a novel...">
-            <button onclick="searchFunction()">search</button>
-        </div>
+<!-- Navbar -->
+<div class="navbar">
+    <h2>Sync<span>Link</span></h2>
 
-        <div class="menu-icons">
-            <i class="fas fa-bell"></i>
-            <i class="fas fa-bookmark"></i>
-            <button class="login-btn">Log In</button>
-        </div>
+    <input type="text" id="search" placeholder="Search novels...">
+    <button onclick="searchFunction()">Search</button>
+
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+    <h1>Welcome to SyncLink</h1>
+    <p>Read your favorite novels online 📚</p>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <!-- Left -->
+    <div class="books" id="bookList"></div>
+
+    <!-- Right Sidebar -->
+    <div class="sidebar">
+        <h3>Top Novels</h3>
+        <ul>
+            <li>Solo Leveling</li>
+            <li>Shadow Slave</li>
+            <li>Lord of the Mysteries</li>
+        </ul>
     </div>
 
-    <div class="main-content">
-        <!-- Left Side: The Grid where search results show up -->
-        <div class="left-section">
-            <h2 id="titleUpdate">Latest Updates</h2>
-            <div id="bookGrid" class="book-grid">
-                <!-- Books will appear here automatically -->
-            </div>
-        </div>
+</div>
 
-        <!-- Right Side: Rankings and Top Novels -->
-        <div class="right-sidebar">
-            <div class="rank-card">
-                <h3><i class="fas fa-fire"></i> Most Viewed</h3>
-                <ol>
-                    <li>Shadow Slave</li>
-                    <li>Lord of the Mysteries</li>
-                    <li>The Primal Hunter</li>
-                    <li>Reverend Insanity</li>
-                    <li>Solo Leveling</li>
-                </ol>
-            </div>
-
-            <div class="rank-card">
-                <h3><i class="fas fa-trophy"></i> Top of 2026</h3>
-                <ul>
-                    <li>1. Circle of Inevitability</li>
-                    <li>2. Deep Sea Embers</li>
-                    <li>3. Outsider</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
